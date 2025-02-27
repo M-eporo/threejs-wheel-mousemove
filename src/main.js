@@ -106,10 +106,11 @@ let rotation = 0;
 window.addEventListener("wheel", e => {
   speed += e.deltaY * 0.0002;
 });
-
+const clock = new THREE.Clock();
 function rot() {
   rotation += speed;
-  speed *= 0.93;
+  //speed *= 0.93;
+  speed *= Math.pow(0.93, clock.getDelta() * 60;
   //All Geometry Rotating
   //x = r cosθ
   //y = r -sinθ
@@ -139,7 +140,7 @@ window.addEventListener("mousemove", e => {
 });
 
 //animation
-const clock = new THREE.Clock();
+
 const animate = () => {
   renderer.render(scene, camera);
   // 前回のフレームからの経過時間
